@@ -1,0 +1,2 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-debian:run
+RUN install_packages dbus

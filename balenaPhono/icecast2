@@ -1,0 +1,4 @@
+CONFIGFILE="/etc/icecast2/icecast.xml"
+USERID=root
+GROUPID=root
+ENABLE=true

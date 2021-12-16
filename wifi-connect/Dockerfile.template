@@ -1,0 +1,4 @@
+FROM balenablocks/wifi-connect:%%BALENA_ARCH%%
+
+ENV PORTAL_SSID="balenaPhono"
+ENV PORTAL_PASSPHRASE="balenaPhono"
