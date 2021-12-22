@@ -1,12 +1,13 @@
 # balenaPhono <img src="logo.png" alt="turntable image" width="50" />
 ## A turntable phono/AUX/USB network streamer
 
-balenaPhono is a project for Raspberry Pi that takes the audio output from a turntable or any other audio device and creates a shoutcast/icecast network stream.
+balenaPhono is a project for Raspberry Pi that takes the audio output from a turntable or any other audio device and creates a shoutcast/icecast network stream. This project is great for anyone looking for a cheap and simple way to play vinyl on Sonos speakers.
 
 ---
 ### Equipment needed:
 * Raspberry Pi (Tested with Pi Zero W)
-* 1. Turntable with USB output -or-
+* Audio device:  
+  1. Turntable with USB output -or-
   2. Turntable with RCA output and [USB Phono Preamp](https://smile.amazon.com/s?k=usb+phono+preamp)
   3. You can use a [USB audio capture card](https://smile.amazon.com/gp/product/B00WPVQXS0) if you want to connect your old Walkman or Diskman.
 * A cheaper [USB phono preamp](https://smile.amazon.com/gp/product/B002GHBYZ0)
@@ -14,7 +15,8 @@ balenaPhono is a project for Raspberry Pi that takes the audio output from a tur
 
 ---
 ### Install
-Running this project is as simple as deploying it to a balenaCloud application. You can deploy it in one click by using the button below: 
+Running this project is as simple as deploying it to a balenaCloud application. You can deploy it in one click by using the button below:
+
 [![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/SamEureka/balenaPhono)
 
 ---
