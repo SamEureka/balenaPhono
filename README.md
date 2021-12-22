@@ -9,10 +9,10 @@ balenaPhono is a project for Raspberry Pi that takes the audio output from a tur
   2. Turntable with RCA output and [USB Phono Preamp](https://smile.amazon.com/s?k=usb+phono+preamp)
   3. You can use a [USB audio capture card](https://smile.amazon.com/gp/product/B00WPVQXS0) if you want to connect your old Walkman or Diskman.
 * A cheaper [USB phono preamp](https://smile.amazon.com/gp/product/B002GHBYZ0)
-* The turntable I use audio-technica [AT-LP60XUSB](https://www.audio-technica.com/en-us/turntables/best-for/new-to-vinyl/at-lp60xusb)
+* The turntable I use: audio-technica [AT-LP60XUSB](https://www.audio-technica.com/en-us/turntables/best-for/new-to-vinyl/at-lp60xusb)
 
 ### Post install setup:
-1. In the alenaCloud console for your new device check the log for any errors. You may need to change the DARKICE_DEVICE variable to match your device. Take a look [here](#) for troubleshooting tips.
+1. In the balenaCloud console for your new device check the log for any errors. You may need to change the DARKICE_DEVICE variable to match your device. Take a look [here](#) for troubleshooting tips.
 2. Get the local ip address for your device from the balenaCloud console.
 3. To play the stream in a browser window:
 
