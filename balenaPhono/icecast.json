@@ -1,0 +1,69 @@
+{
+  "variables": [
+    {
+      "balena": "ICECAST_LOCATION",
+      "xml": "location",
+      "default": "Interwebs"
+    },
+    {
+      "balena": "ICECAST_ADMIN_EMAIL",
+      "xml": "admin",
+      "default": "balenaAdmin@localhost"
+    },
+    {
+      "balena": "ICECAST_CLIENTS",
+      "xml": "limits/clients",
+      "default": "10"
+    },
+    {
+      "balena": "ICECAST_SOURCE_PASSWORD",
+      "xml": "authentication/source-password",
+      "default": "b@13n4!"
+    },
+    {
+      "balena": "ICECAST_RELAY_PASSWORD",
+      "xml": "authentication/relay-password",
+      "default": "b@13n4!"
+    },
+    {
+      "balena": "ICECAST_ADMIN_NAME",
+      "xml": "authentication/admin-user",
+      "default": "balenaAdmin"
+    },
+    {
+      "balena": "ICECAST_ADMIN_PASSWORD",
+      "xml": "authentication/admin-password",
+      "default": "b@13n4-@dm1n!"
+    },
+    {
+      "balena": "ICECAST_HOSTNAME",
+      "xml": "hostname",
+      "default": "balenaPhono"
+    },
+    {
+      "balena": "ICECAST_PORT",
+      "xml": "listen-socket/port",
+      "default": "80"
+    },
+    {
+      "balena": "ICECAST_MOUNT_POINT",
+      "xml": "listen-socket/shoutcast-mount",
+      "default": "rapi.mp3"
+    },
+    {
+      "balena": "ICECAST_STREAM_NAME",
+      "xml": "mount/stream-name",
+      "default": "balenaPhono"
+    },
+    {
+      "balena": "ICECAST_STREAM_DESC",
+      "xml": "mount/stream-description",
+      "default": "A stream from AUX/Phono"
+    },
+    {
+      "balena": "ICECAST_GENRE",
+      "xml": "mount/genre",
+      "default": "Vinyl"
+    }
+  ]
+}
