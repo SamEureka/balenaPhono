@@ -1,5 +1,7 @@
 #/bin/bash
 
+python3 phonoConfig.py
+
 echo "Copying icecast2 service and config."
 cp icecast2 /etc/default/
 cp icecast.xml /etc/icecast2/

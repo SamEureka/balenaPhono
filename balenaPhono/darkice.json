@@ -1,0 +1,94 @@
+{
+  "variables": [
+    {
+      "balena": "DARKICE_DURATION",
+      "ini": "duration",
+      "section": "general",
+      "default": "0"
+    },
+    {
+      "balena": "DARKICE_BUFFER_SECONDS",
+      "ini": "bufferSecs",
+      "section": "general",
+      "default": "1"
+    },
+    {
+      "balena": "DARKICE_RECONNECT",
+      "ini": "reconnect",
+      "section": "general",
+      "default": "yes"
+    },
+    {
+      "balena": "DARKICE_DEVICE",
+      "ini": "device",
+      "section": "input",
+      "default": "plughw:0,0"
+    },
+    {
+      "balena": "DARKICE_SAMPLE_RATE",
+      "ini": "sampleRate",
+      "section": "input",
+      "default": "44100"
+    },
+    {
+      "balena": "DARKICE_BITS_PER_SAMPLE",
+      "ini": "bitsPerSample",
+      "section": "input",
+      "default": "16"
+    },
+    {
+      "balena": "DARKICE_CHANNEL",
+      "ini": "channel",
+      "section": "input",
+      "default": "2"
+    },
+    {
+      "balena": "DARKICE_BITRATE_MODE",
+      "ini": "bitrateMode",
+      "section": "icecast2-0",
+      "default": "cbr"
+    },
+    {
+      "balena": "DARKICE_FORMAT",
+      "ini": "format",
+      "section": "icecast2-0",
+      "default": "mp3"
+    },
+    {
+      "balena": "DARKICE_BITRATE",
+      "ini": "bitrate",
+      "section": "icecast2-0",
+      "default": "320"
+    },
+    {
+      "balena": "DARKICE_SERVER",
+      "ini": "server",
+      "section": "icecast2-0",
+      "default": "localhost"
+    },
+    {
+      "balena": "DARKICE_PORT",
+      "ini": "port",
+      "section": "icecast2-0",
+      "default": "80"
+    },
+    {
+      "balena": "DARKICE_PASSWORD",
+      "ini": "password",
+      "section": "icecast2-0",
+      "default": "b@13n4!"
+    },
+    {
+      "balena": "DARKICE_MOUNT_POINT",
+      "ini": "mountPoint",
+      "section": "icecast2-0",
+      "default": "rapi.mp3"
+    },
+    {
+      "balena": "DARKICE_NAME",
+      "ini": "name",
+      "section": "icecast2-0",
+      "default": "balenaPhono"
+    }
+  ]
+}
