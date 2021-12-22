@@ -1,4 +1,4 @@
-# balenaPhono <img src="logo.png" alt="turntable image" width="50" />
+# <img src="logo.png" alt="turntable image" width="60" /> balenaPhono
 ## A turntable phono/AUX/USB network streamer
 
 balenaPhono is a project for Raspberry Pi that takes the audio output from a turntable or any other audio device and creates a shoutcast/icecast network stream. This project is great for anyone looking for a cheap and simple way to play vinyl on Sonos speakers.
@@ -70,14 +70,19 @@ Running this project is as simple as deploying it to a balenaCloud application. 
 | DARKICE_NAME | balenaPhono | Name of the stream. |
 | | | |
 
-#### Reference:
+
+### Getting Help
+* Google is your friend!
+* Submit an issue on this repo and I'll help if I can.
+---
+### Reference:
 * [Darkice man page](http://manpages.ubuntu.com/manpages/bionic/man5/darkice.cfg.5.html)
 * [Darkice REPO](https://github.com/rafael2k/darkice)
 * [Darkice Homepage](http://www.darkice.org/)
 * [Icecast Homepage](https://icecast.org/)
 * [BalenaBlocks/wifi-connect](https://github.com/balenablocks/wifi-connect)
-
-#### Credits:
+---
+### Credits:
 * https://forums.balena.io/t/reboot-balenasound-with-cron/297717/8
 * https://github.com/niedfelj/balena-rpi-audio-streaming
 * https://www.instructables.com/id/Add-Aux-to-Sonos-Using-Raspberry-Pi/
