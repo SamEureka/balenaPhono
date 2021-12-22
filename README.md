@@ -60,7 +60,7 @@ Running this project is as simple as deploying it to a balenaCloud application. 
 | DARKICE_SAMPLE_RATE | 44100 | Sample rate of the source audio. You shouldn't need to change this. |
 | DARKICE_BITS_PER_SAMPLE | 16 | Bits per sample. You shouldn't need to change this one either. |
 | DARKICE_CHANNEL | 2 | How many channels. 2 for stereo... 1 for mono |
-| DARKICE_BITRATE_NODE | cbr | Accepts cbr, abr, vbr. Read the [man page](http://manpages.ubuntu.com/manpages/bionic/man5/darkice.cfg.5.html) for more info |
+| DARKICE_BITRATE_MODE | cbr | Accepts cbr, abr, vbr. Read the [man page](http://manpages.ubuntu.com/manpages/bionic/man5/darkice.cfg.5.html) for more info |
 | DARKICE_FORMAT | mp3 | Format of the stream sent to the IceCast2 server. Supported formats  are  'vorbis', 'opus', 'mp3', 'mp2', 'aac' and 'aacp' |
 | DARKICE_BITRATE | 320 | Bit rate to encode to in kBits / sec (e.g. 320). Only used when cbr or abr bitrate modes are specified. |
 | DARKICE_SERVER | localhost | Icecast server address or url |
