@@ -53,4 +53,5 @@ data:
     - raspberry-pi2
     - raspberrypi3
     - raspberrypi4-64
+joinable: false
 version: 1.0.1
