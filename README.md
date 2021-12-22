@@ -5,7 +5,7 @@ balenaPhono is a project for Raspberry Pi that takes the audio output from a tur
 
 ---
 ### Equipment needed:
-* Raspberry Pi (Tested with Pi Zero W)
+* Raspberry Pi (Tested with Pi3, running daily on Pi Zero W)
 * Audio device:  
   1. Turntable with USB output -or-
   2. Turntable with RCA output and [USB Phono Preamp](https://smile.amazon.com/s?k=usb+phono+preamp)

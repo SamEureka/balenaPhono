@@ -1,5 +1,5 @@
 name: balenaPhono
-type: sw.sw.sw.sw.application
+type: sw.application
 description: >-
   balenaPhono is a project for Raspberry Pi that takes the audio output from a turntable or any other audio device and creates a shoutcast/icecast network stream. This project is great for anyone looking for a cheap and simple way to play vinyl on Sonos speakers.
 assets:
