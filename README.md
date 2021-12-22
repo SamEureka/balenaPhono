@@ -5,13 +5,30 @@ balenaPhono is a project for Raspberry Pi that takes the audio output from a tur
 
 ### Equipment needed:
 * Raspberry Pi (Tested with Pi Zero W)
-* Turntable with USB output -or-
-* Turntable with RCA output and [USB Phono Preamp](https://smile.amazon.com/s?k=usb+phono+preamp)
-* You can use a [USB audio capture card](https://smile.amazon.com/gp/product/B00WPVQXS0) if you want to connect your old Walkman or Diskman.  
+* 1. Turntable with USB output -or-
+  2. Turntable with RCA output and [USB Phono Preamp](https://smile.amazon.com/s?k=usb+phono+preamp)
+  3. You can use a [USB audio capture card](https://smile.amazon.com/gp/product/B00WPVQXS0) if you want to connect your old Walkman or Diskman.
+* A cheaper [USB phono preamp](https://smile.amazon.com/gp/product/B002GHBYZ0)
+* The turntable I use audio-technica [AT-LP60XUSB](https://www.audio-technica.com/en-us/turntables/best-for/new-to-vinyl/at-lp60xusb)
 
+### Post install setup:
+1. In the alenaCloud console for your new device check the log for any errors. You may need to change the DARKICE_DEVICE variable to match your device. Take a look [here](#) for troubleshooting tips.
+2. Get the local ip address for your device from the balenaCloud console.
+3. To play the stream in a browser window:
+
+    ```http://<device-ip>/rapi.mp3```
+
+4. To add your stream to your Sonos system:
+
+    ```You must use the Sonos desktop controller app to add a custom stream to Sonos. Click on Manage > Add Radio Station and enter the url for the stream (using your device local ip) "http://<device-ip>/rapi.mp3". Also enter a Station Name and click OK.``` 
+
+---
 ### Device Variables:
 | Variable | Example Value | Note |
 |---|---|---|
+| PORTAL_SSID | balenaPhono | Wifi-connect captive portal SSID **Check out [wifi-connect](https://github.com/balenablocks/wifi-connect) page for additional variables. |
+| PORTAL_PASSPHRASE | balenaPhono | Wifi-connect captive portal Passphrase |
+| PORTAL_LISTENING_PORT | 8000 | *Changed from the default port 80 due to conflict with Icecast server |
 | CHECK_CONN_FREQ | 120 | This is the wifi-connect polling wait time in seconds. The default is 120 seconds, I usually set mine to 3000.  |
 | REBOOT_SLEEP_TIME | 1d | Default is 1d (one day). Will work with d m s (days, minutes, seconds). It is a sleep time for the balenaBooter. Darkice audio streams have a tendency to get corrupted after a few days of up time. balenaBooter reboots the host once a day to keep things clean. Looking for a better way... if you have ideas. |
 | ICECAST_LOCATION | Interwebs | Where your stream is hosted from or where you are located. |
@@ -49,6 +66,7 @@ balenaPhono is a project for Raspberry Pi that takes the audio output from a tur
 * [Darkice REPO](https://github.com/rafael2k/darkice)
 * [Darkice Homepage](http://www.darkice.org/)
 * [Icecast Homepage](https://icecast.org/)
+* [BalenaBlocks/wifi-connect](https://github.com/balenablocks/wifi-connect)
 
 #### Credits:
 * https://forums.balena.io/t/reboot-balenasound-with-cron/297717/8
