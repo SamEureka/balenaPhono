@@ -3,6 +3,7 @@
 
 balenaPhono is a project for Raspberry Pi that takes the audio output from a turntable or any other audio device and creates a shoutcast/icecast network stream.
 
+---
 ### Equipment needed:
 * Raspberry Pi (Tested with Pi Zero W)
 * 1. Turntable with USB output -or-
@@ -11,6 +12,12 @@ balenaPhono is a project for Raspberry Pi that takes the audio output from a tur
 * A cheaper [USB phono preamp](https://smile.amazon.com/gp/product/B002GHBYZ0)
 * The turntable I use: audio-technica [AT-LP60XUSB](https://www.audio-technica.com/en-us/turntables/best-for/new-to-vinyl/at-lp60xusb)
 
+---
+### Install
+Running this project is as simple as deploying it to a balenaCloud application. You can deploy it in one click by using the button below: 
+[![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/SamEureka/balenaPhono)
+
+---
 ### Post install setup:
 1. In the balenaCloud console for your new device check the log for any errors. You may need to change the DARKICE_DEVICE variable to match your device. Take a look [here](#) for troubleshooting tips.
 2. Get the local ip address for your device from the balenaCloud console.
