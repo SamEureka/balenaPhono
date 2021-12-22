@@ -1,16 +1,25 @@
 # balenaPhono <img src="logo.png" alt="turntable image" width="50" />
 ## A turntable phono/AUX/USB network streamer
 
-balenaPhono is a project for Raspberry Pi that takes the audio output from a turntable or any other audio device and creates a shoutcast/icecast network stream.
+balenaPhono is a project for Raspberry Pi that takes the audio output from a turntable or any other audio device and creates a shoutcast/icecast network stream. This project is great for anyone looking for a cheap and simple way to play vinyl on Sonos speakers.
 
+---
 ### Equipment needed:
 * Raspberry Pi (Tested with Pi Zero W)
-* 1. Turntable with USB output -or-
+* Audio device:  
+  1. Turntable with USB output -or-
   2. Turntable with RCA output and [USB Phono Preamp](https://smile.amazon.com/s?k=usb+phono+preamp)
   3. You can use a [USB audio capture card](https://smile.amazon.com/gp/product/B00WPVQXS0) if you want to connect your old Walkman or Diskman.
 * A cheaper [USB phono preamp](https://smile.amazon.com/gp/product/B002GHBYZ0)
 * The turntable I use: audio-technica [AT-LP60XUSB](https://www.audio-technica.com/en-us/turntables/best-for/new-to-vinyl/at-lp60xusb)
 
+---
+### Install
+Running this project is as simple as deploying it to a balenaCloud application. You can deploy it in one click by using the button below:
+
+[![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/SamEureka/balenaPhono)
+
+---
 ### Post install setup:
 1. In the balenaCloud console for your new device check the log for any errors. You may need to change the DARKICE_DEVICE variable to match your device. Take a look [here](#) for troubleshooting tips.
 2. Get the local ip address for your device from the balenaCloud console.
@@ -51,7 +60,7 @@ balenaPhono is a project for Raspberry Pi that takes the audio output from a tur
 | DARKICE_SAMPLE_RATE | 44100 | Sample rate of the source audio. You shouldn't need to change this. |
 | DARKICE_BITS_PER_SAMPLE | 16 | Bits per sample. You shouldn't need to change this one either. |
 | DARKICE_CHANNEL | 2 | How many channels. 2 for stereo... 1 for mono |
-| DARKICE_BITRATE_NODE | cbr | Accepts cbr, abr, vbr. Read the [man page](http://manpages.ubuntu.com/manpages/bionic/man5/darkice.cfg.5.html) for more info |
+| DARKICE_BITRATE_MODE | cbr | Accepts cbr, abr, vbr. Read the [man page](http://manpages.ubuntu.com/manpages/bionic/man5/darkice.cfg.5.html) for more info |
 | DARKICE_FORMAT | mp3 | Format of the stream sent to the IceCast2 server. Supported formats  are  'vorbis', 'opus', 'mp3', 'mp2', 'aac' and 'aacp' |
 | DARKICE_BITRATE | 320 | Bit rate to encode to in kBits / sec (e.g. 320). Only used when cbr or abr bitrate modes are specified. |
 | DARKICE_SERVER | localhost | Icecast server address or url |

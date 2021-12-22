@@ -1,0 +1,56 @@
+name: balenaPhono
+type: sw.sw.sw.sw.application
+description: >-
+  balenaPhono is a project for Raspberry Pi that takes the audio output from a turntable or any other audio device and creates a shoutcast/icecast network stream. This project is great for anyone looking for a cheap and simple way to play vinyl on Sonos speakers.
+assets:
+  repository:
+    type: blob.asset
+    data:
+      url: 'https://github.com/SamEureka/balenaPhono'
+  logo:
+    type: blob.asset
+    data:
+      url: >-
+        https://github.com/SamEureka/balenaPhono/raw/main/logo.png
+data:
+  applicationEnvironmentVariables:
+    - PORTAL_SSID: balenaPhono
+    - PORTAL_PASSPHRASE: balenaPhono
+    - PORTAL_LISTENING_PORT: 8000
+    - CHECK_CONN_FREQ: 120
+    - REBOOT_SLEEP_TIME: 1d
+    - ICECAST_LOCATION: Interwebs
+    - ICECAST_ADMIN_EMAIL: balenaAdmin@localhost
+    - ICECAST_CLIENTS: 10
+    - ICECAST_SOURCE_PASSWORD: b@13n4!
+    - ICECAST_RELAY_PASSWORD: b@13n4!
+    - ICECAST_ADMIN_NAME: balenaAdmin
+    - ICECAST_ADMIN_PASSWORD: b@13n4-@dm1n!
+    - ICECAST_HOSTNAME: balenaPhono
+    - ICECAST_PORT: 80
+    - ICECAST_MOUNT_POINT: rapi.mp3
+    - ICECAST_STREAM_NAME: 	balenaPhono
+    - ICECAST_STREAM_DESC: A stream from AUX/Phono
+    - ICECAST_GENRE: vinyl
+    - DARKICE_DURATION: 0
+    - DARKICE_BUFFER_SECONDS: 1
+    - DARKICE_RECONNECT: yes
+    - DARKICE_DEVICE: plughw:0,0
+    - DARKICE_SAMPLE_RATE: 44100
+    - DARKICE_BITS_PER_SAMPLE: 16
+    - DARKICE_CHANNEL: 2
+    - DARKICE_BITRATE_MODE: cbr
+    - DARKICE_FORMAT: mp3
+    - DARKICE_BITRATE: 320
+    - DARKICE_SERVER: localhost
+    - DARKICE_PORT: 80
+    - DARKICE_PASSWORD: b@13n4!
+    - DARKICE_MOUNT_POINT: rapi.mp3
+    - DARKICE_NAME: balenaPhono
+  defaultDeviceType: raspberry-pi
+  supportedDeviceTypes:
+    - raspberry-pi
+    - raspberry-pi2
+    - raspberrypi3
+    - raspberrypi4-64
+version: 1.0.1
