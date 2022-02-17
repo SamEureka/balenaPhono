@@ -2,11 +2,12 @@ FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-python:3.9-buster
 
 WORKDIR /app
 
-RUN install_packages alsa-utils darkice icecast2
+RUN install_packages alsa-utils darkice icecast2 mime-support
 
 # This will copy all files in our root to the working  directory in the container
 COPY . ./
 
+# Checks for env vars and creates the config files.
 RUN python3 phonoConfig.py
 
 # Enable udevd so that plugged dynamic hardware devices show up in our container.
