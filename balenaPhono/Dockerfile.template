@@ -1,17 +1,20 @@
+# Use balena distros, they have extra Charlie Unicorn magic built in!
 FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-python:3.9-buster
 
+# Set the working directory
 WORKDIR /app
 
+# Install required packages
 RUN install_packages alsa-utils darkice icecast2 mime-support
 
-# This will copy all files in our root to the working  directory in the container
+# Copy all the things
 COPY . ./
 
-# Checks for env vars and creates the config files.
+# Check for balena device variables, apply or set defaults... build configs
 RUN python3 phonoConfig.py
 
-# Enable udevd so that plugged dynamic hardware devices show up in our container.
+# Makes stuff dynamically available in the container
 ENV UDEV=1
 
-# startup.sh will run when container starts up on the device
+# Start the services
 CMD ["bash", "start.sh"]
