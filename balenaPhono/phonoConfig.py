@@ -1,9 +1,12 @@
+## balenaPhono/phonoConfig.py ##
+## Sam Dennon//DEC2021        ##
+
 import configparser as CFG
 import os
 import json
 import xml.etree.ElementTree as ET
 
-# Checks and writes the Darkice variables. Pulls from Balena Device variables if they exist.
+# Checks and writes the Darkice variables to the darkice.cfg file. Pulls from Balena Device variables if they exist.
 darkConf = CFG.ConfigParser()
 darkConf.optionxform = lambda option: option
 with open('darkice.json') as d:
@@ -21,7 +24,7 @@ for dark in darkvars['variables']:
 with open('darkice.cfg', 'w') as config:
   darkConf.write(config)
 
-# Checks and writes the Icecast Variables. Pulls from Balena Device Variables if they exist.
+# Checks and writes the Icecast Variables to the icecast.xml file. Pulls from Balena Device Variables if they exist.
 tree = ET.parse('icecast.xml')
 icecast = tree.getroot()
 with open('icecast.json') as v:
