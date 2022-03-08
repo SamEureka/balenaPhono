@@ -1,8 +1,11 @@
+## balenaPhono/Dockerfile.template ##
+## Sam Dennon//2021                ##
+
 # Use balena distros, they have extra Charlie Unicorn magic built in!
 FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-python:3.9-buster
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /balenaPhono
 
 # Install required packages
 RUN install_packages alsa-utils darkice icecast2 mime-support
