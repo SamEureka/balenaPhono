@@ -21,7 +21,7 @@ Running this project is as simple as deploying it to a balenaCloud application. 
 
 ---
 ### Post install setup:
-1. In the balenaCloud console for your new device check the log for any errors. You may need to change the DARKICE_DEVICE variable to match your device. Take a look [here](#) for troubleshooting tips.
+1. In the balenaCloud console for your new device check the log for any errors. You may need to change the DARKICE_DEVICE variable to match your device. Take a look [here](http://manpages.ubuntu.com/manpages/bionic/man5/darkice.cfg.5.html) for troubleshooting tips.
 2. Get the local ip address for your device from the balenaCloud console.
 3. To play the stream in a browser window:
 
