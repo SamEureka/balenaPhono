@@ -12,7 +12,7 @@ assets:
     type: blob.asset
     data:
       url: >-
-        https://github.com/SamEureka/balenaPhono/raw/main/logo.png
+        https://raw.githubusercontent.com/SamEureka/balenaPhono/main/logo.png
 data:
   applicationEnvironmentVariables:
     - PORTAL_SSID: balenaPhono
