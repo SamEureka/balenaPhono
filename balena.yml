@@ -19,7 +19,8 @@ data:
     - PORTAL_PASSPHRASE: balenaPhono
     - PORTAL_LISTENING_PORT: 8000
     - CHECK_CONN_FREQ: 120
-    - REBOOT_SLEEP_TIME: 1d
+    - REBOOT_TIME: 4
+    - TZ: America/Los_Angeles
     - ICECAST_LOCATION: Interwebs
     - ICECAST_ADMIN_EMAIL: balenaAdmin@localhost
     - ICECAST_CLIENTS: 10
@@ -54,4 +55,4 @@ data:
     - raspberry-pi2
     - raspberrypi3
     - raspberrypi4-64
-version: 1.0.4
+version: 2.0.1

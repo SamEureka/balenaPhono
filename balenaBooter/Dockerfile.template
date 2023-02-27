@@ -1,2 +1,0 @@
-FROM balenalib/%%BALENA_MACHINE_NAME%%-alpine
-RUN install_packages dbus

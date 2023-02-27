@@ -10,18 +10,6 @@ services:
     ports:
       - "80:80/tcp"
       - "80:80/udp"
-  balenaBooter:
-    build: ./balenaBooter
-    environment:
-      - 'REBOOT_SLEEP_TIME=1d'
-      - 'DBUS_SYSTEM_BUS_ADDRESS=unix:path=/host/run/dbus/system_bus_socket'
-    labels:
-      io.balena.features.dbus: 1
-    command:
-      - "/bin/sh"
-      - "-c"
-      - "sleep $REBOOT_SLEEP_TIME && dbus-send --system --print-reply --dest=org.freedesktop.systemd1 /org/freedesktop/systemd1 org.freedesktop.systemd1.Manager.Reboot"
-      - 'echo "Reboot delay set to $REBOOT_SLEEP_TIME"'
   wifi-connect:
     build: ./wifi-connect
     restart: always
