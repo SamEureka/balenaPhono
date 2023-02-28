@@ -7,7 +7,7 @@
 ## at the time specified in the REBOOT_TIME env variable. 
 ## (defaults to 4am in the timezone specified in the TZ variable.)
 REBOOT_TIME="${REBOOT_TIME:=4}"
-(echo "*/5 ${REBOOT_TIME} * * * /balenaPhono/booter.sh > /proc/1/fd/1 2>&1") | crontab -
+(echo "*/5 ${REBOOT_TIME} * * * /balenaPhono/booter.py > /proc/1/fd/1 2>&1") | crontab -
 
 exec cron -f
 echo "cron updated"

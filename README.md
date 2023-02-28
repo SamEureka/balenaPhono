@@ -1,16 +1,16 @@
 # <img src="logo.png" alt="turntable image" width="60" /> balenaPhono
 ## A turntable phono/AUX/USB network streamer
 
-balenaPhono is a project for Raspberry Pi that takes the audio output from a turntable or any other audio device and creates a shoutcast/icecast network stream. This project is great for anyone looking for a cheap and simple way to play vinyl on Sonos speakers.
+balenaPhono is a project for Raspberry Pi that takes the audio output from a turntable or any other audio device and creates a shoutcast/icecast network stream. This project is great for anyone looking for a cheap and simple way to play vinyl on [Sonos](https://www.sonos.com/en-us/home) or [Ikea Symfonisk](https://www.ikea.com/us/en/cat/wi-fi-speakers-46194/) speakers.
 
 ---
 ### Equipment needed:
 * Raspberry Pi (Tested with Pi3, running daily on Pi Zero W)
 * Audio device:  
   1. Turntable with USB output -or-
-  2. Turntable with RCA output and [USB Phono Preamp](https://smile.amazon.com/s?k=usb+phono+preamp)
-  3. You can use a [USB audio capture card](https://smile.amazon.com/gp/product/B00WPVQXS0) if you want to connect your old Walkman or Diskman.
-* A cheaper [USB phono preamp](https://smile.amazon.com/gp/product/B002GHBYZ0)
+  2. Turntable with RCA output and [USB Phono Preamp](https://www.amazon.com/s?k=usb+phono+preamp)
+  3. You can use a [USB audio capture card](https://www.amazon.com/s?k=usb+audio+capture+card) if you want to connect your old Walkman or Diskman.
+* A cheaper [USB phono preamp](https://www.amazon.com/gp/product/B002GHBYZ0)
 * The turntable I use: audio-technica [AT-LP60XUSB](https://www.audio-technica.com/en-us/turntables/best-for/new-to-vinyl/at-lp60xusb)
 
 ---
