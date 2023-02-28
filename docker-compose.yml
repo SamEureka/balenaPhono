@@ -7,6 +7,7 @@ services:
     privileged: true
     labels:
       io.balena.features.dbus: 1
+      io.balena.features.supervisor-api: 1
     ports:
       - "80:80/tcp"
       - "80:80/udp"
