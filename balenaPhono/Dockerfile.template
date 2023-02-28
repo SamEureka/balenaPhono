@@ -15,8 +15,6 @@ RUN pip install requests
 # Copy all the things
 COPY . ./
 
-RUN chmod +x /balenaPhono/booter.py
-
 # Check for balena device variables, apply or set defaults... build configs
 RUN python3 /balenaPhono/phonoConfig.py
 

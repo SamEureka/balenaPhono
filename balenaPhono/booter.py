@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 ## balenaPhono/booter.py ##
 ## Sam Dennon // 2023    ##
 
