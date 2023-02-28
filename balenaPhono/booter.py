@@ -14,4 +14,3 @@ HEADERS = {"Content-Type": "application/json"}
 
 # Send the reboot signal to the BALENA SUPERVISOR
 requests.post(URL, headers=HEADERS)
-print(reqeusts.Response)
