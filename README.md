@@ -39,7 +39,8 @@ Running this project is as simple as deploying it to a balenaCloud application. 
 | PORTAL_PASSPHRASE | balenaPhono | Wifi-connect captive portal Passphrase |
 | PORTAL_LISTENING_PORT | 8000 | *Changed from the default port 80 due to conflict with Icecast server |
 | CHECK_CONN_FREQ | 120 | This is the wifi-connect polling wait time in seconds. The default is 120 seconds, I usually set mine to 3000.  |
-| REBOOT_SLEEP_TIME | 1d | Default is 1d (one day). Will work with d m s (days, minutes, seconds). It is a sleep time for the balenaBooter. Darkice audio streams have a tendency to get corrupted after a few days of up time. balenaBooter reboots the host once a day to keep things clean. Looking for a better way... if you have ideas. |
+| REBOOT_TIME | 4 | Default is 4 (reboot every 24 hours at [4:00am](https://github.com/SamEureka/balenaPhono/issues/5) in the `America/Los_Angeles` timezone). Acceptable values are 0 through 23 representing the hour you want the device to reboot every day. Darkice audio streams have a tendency to get corrupted after a few days of up time. A python script triggered by cron reboots the host once a day to keep things clean. Looking for a better way... if you have ideas. |
+| TZ | `America/Los_Angeles` | Sets the timezone look up your timezone [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). Default is `America/Los_Angeles` |
 | ICECAST_LOCATION | Interwebs | Where your stream is hosted from or where you are located. |
 | ICECAST_ADMIN_EMAIL | balenaAdmin@localhost | Used for the Icecast status page, doesn't need to be real |
 | ICECAST_CLIENTS | 10 | How many clients can connect to your stream. Keep it low if you are using a Pi Zero |
