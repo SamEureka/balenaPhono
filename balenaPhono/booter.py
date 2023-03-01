@@ -5,6 +5,12 @@
 
 import os
 import requests
+from dotenv import load_dotenv
+from pathlib import Path
+
+
+dotenv_path = Path('/balenaPhono/.env')
+load_dotenv(dotenv_path=dotenv_path)
 
 # Get some stuff from env
 BALENA_SUPERVISOR_ADDRESS = os.environ['BALENA_SUPERVISOR_ADDRESS']
