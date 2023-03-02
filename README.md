@@ -1,16 +1,19 @@
 # <img src="logo.png" alt="turntable image" width="60" /> balenaPhono
 ## A turntable phono/AUX/USB network streamer
 
-balenaPhono is a project for Raspberry Pi that takes the audio output from a turntable or any other audio device and creates a shoutcast/icecast network stream. This project is great for anyone looking for a cheap and simple way to play vinyl on Sonos speakers.
+balenaPhono is a project for Raspberry Pi that takes the audio output from a turntable or any other audio device and creates a shoutcast/icecast network stream. This project is great for anyone looking for a cheap and simple way to play vinyl on [Sonos](https://www.sonos.com/en-us/home) or [Ikea Symfonisk](https://www.ikea.com/us/en/cat/wi-fi-speakers-46194/) speakers.
+
+### _*UPDATE!*_:
+* I've updated the booter container to use the cron instead of a bash script `sleep` method. Now you use the `REBOOT_TIME` variable to specify the hour of the day you would like balenaPhono to reboot. This keeps the darkice stream from becoming unstable over time. If you have a better way to do this please make a pull request or open an issue.   
 
 ---
 ### Equipment needed:
 * Raspberry Pi (Tested with Pi3, running daily on Pi Zero W)
 * Audio device:  
   1. Turntable with USB output -or-
-  2. Turntable with RCA output and [USB Phono Preamp](https://smile.amazon.com/s?k=usb+phono+preamp)
-  3. You can use a [USB audio capture card](https://smile.amazon.com/gp/product/B00WPVQXS0) if you want to connect your old Walkman or Diskman.
-* A cheaper [USB phono preamp](https://smile.amazon.com/gp/product/B002GHBYZ0)
+  2. Turntable with RCA output and [USB Phono Preamp](https://www.amazon.com/s?k=usb+phono+preamp)
+  3. You can use a [USB audio capture card](https://www.amazon.com/s?k=usb+audio+capture+card) if you want to connect your old Walkman or Diskman.
+* A cheaper [USB phono preamp](https://www.amazon.com/gp/product/B002GHBYZ0)
 * The turntable I use: audio-technica [AT-LP60XUSB](https://www.audio-technica.com/en-us/turntables/best-for/new-to-vinyl/at-lp60xusb)
 
 ---
@@ -39,7 +42,8 @@ Running this project is as simple as deploying it to a balenaCloud application. 
 | PORTAL_PASSPHRASE | balenaPhono | Wifi-connect captive portal Passphrase |
 | PORTAL_LISTENING_PORT | 8000 | *Changed from the default port 80 due to conflict with Icecast server |
 | CHECK_CONN_FREQ | 120 | This is the wifi-connect polling wait time in seconds. The default is 120 seconds, I usually set mine to 3000.  |
-| REBOOT_SLEEP_TIME | 1d | Default is 1d (one day). Will work with d m s (days, minutes, seconds). It is a sleep time for the balenaBooter. Darkice audio streams have a tendency to get corrupted after a few days of up time. balenaBooter reboots the host once a day to keep things clean. Looking for a better way... if you have ideas. |
+| REBOOT_TIME | 4 | Default is 4 (reboot every 24 hours at [4:00am](https://github.com/SamEureka/balenaPhono/issues/5) in the `America/Los_Angeles` timezone). Acceptable values are 0 through 23 representing the hour you want the device to reboot every day. Darkice audio streams have a tendency to get corrupted after a few days of up time. A python script triggered by cron reboots the host once a day to keep things clean. Looking for a better way... if you have ideas. |
+| TZ | `America/Los_Angeles` | Sets the timezone. Look up your timezone [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). Default is `America/Los_Angeles` |
 | ICECAST_LOCATION | Interwebs | Where your stream is hosted from or where you are located. |
 | ICECAST_ADMIN_EMAIL | balenaAdmin@localhost | Used for the Icecast status page, doesn't need to be real |
 | ICECAST_CLIENTS | 10 | How many clients can connect to your stream. Keep it low if you are using a Pi Zero |

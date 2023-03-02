@@ -1,23 +1,23 @@
 ## balenaPhono/Dockerfile.template ##
-## Sam Dennon//2021                ##
+## Sam Dennon//2023                ##
 
-# Use balena distros, they have extra Charlie Unicorn magic built in!
-FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-python:3.9-buster
+# Use balena base images, they have extra Charlie Unicorn magic built in!
+FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-python:3.10.10-bullseye
 
 # Set the working directory
 WORKDIR /balenaPhono
 
 # Install required packages
-RUN install_packages alsa-utils darkice icecast2 mime-support
+RUN install_packages alsa-utils darkice icecast2 mime-support curl tzdata dbus
 
 # Copy all the things
 COPY . ./
 
 # Check for balena device variables, apply or set defaults... build configs
-RUN python3 phonoConfig.py
+RUN python3 /balenaPhono/phonoConfig.py
 
 # Makes stuff dynamically available in the container
 ENV UDEV=1
 
 # Start the services
-CMD ["bash", "start.sh"]
+CMD ["bash", "/balenaPhono/start.sh"]

@@ -1,10 +1,11 @@
 #/bin/bash
 
 ## balenaPhono/start.sh ##
-## Sam Dennon//2021     ##
+## Sam Dennon//2023     ##
 
 # Build the config files
 python3 phonoConfig.py
+echo "Config files complete"
 
 echo "Copying icecast2 service and config"
 cp icecast2 /etc/default/
