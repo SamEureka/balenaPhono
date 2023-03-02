@@ -2,7 +2,7 @@
 
 # Need to copy the env to a .env file so the booter.py script can access
 # the environment variables. I could not figure out a better way to do this.
-env >> /balenaPhono/.env
+env >> /booter/.env
 echo "Variables copied to .env"
 
 # Let's update the crond to reboot the system every 24 hours
@@ -10,6 +10,6 @@ echo "Variables copied to .env"
 # (defaults to 4am in the timezone specified in the TZ variable.)
 REBOOT_TIME="${REBOOT_TIME:=4}"
 INCREMENT="${INCREMENT:=0}"
-(echo "${INCREMENT} ${REBOOT_TIME} * * * /usr/local/bin/python /balenaPhono/booter.py > /proc/1/fd/1 2>&1") | crontab -
-exec cron -f
+(echo "${INCREMENT} ${REBOOT_TIME} * * * /usr/local/bin/python /booter/booter.py > /proc/1/fd/1 2>&1") | crontab -
 echo "cron updated"
+exec cron -f

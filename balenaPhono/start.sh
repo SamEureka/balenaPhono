@@ -3,8 +3,6 @@
 ## balenaPhono/start.sh ##
 ## Sam Dennon//2023     ##
 
-chmod +x /balenaPhono/booter.sh
-
 # Build the config files
 python3 phonoConfig.py
 echo "Config files complete"
@@ -26,5 +24,3 @@ done
 
 echo "USB device detected, starting Darkice stream"
 darkice -c ./darkice.cfg
-
-source /balenaPhono/booter.sh

@@ -3,6 +3,9 @@
 
 balenaPhono is a project for Raspberry Pi that takes the audio output from a turntable or any other audio device and creates a shoutcast/icecast network stream. This project is great for anyone looking for a cheap and simple way to play vinyl on [Sonos](https://www.sonos.com/en-us/home) or [Ikea Symfonisk](https://www.ikea.com/us/en/cat/wi-fi-speakers-46194/) speakers.
 
+### _*UPDATE!*_:
+* I've updated the booter container to use the cron instead of a bash script `sleep` method. Now you use the `REBOOT_TIME` variable to specify the hour of the day you would like balenaPhono to reboot. This keeps the darkice stream from becoming unstable over time. If you have a better way to do this please make a pull request or open an issue.   
+
 ---
 ### Equipment needed:
 * Raspberry Pi (Tested with Pi3, running daily on Pi Zero W)
