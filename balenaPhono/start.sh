@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 ## balenaPhono/start.sh ##
 ## Sam Dennon//2023     ##
@@ -16,7 +16,7 @@ service icecast2 start
 sleep 2
 
 ## You may need to change this to /proc/asound/card1 ##
-until [ -d /proc/asound/card0 ]
+until [ -d /proc/asound/card0 | /proc/asound/card1 ]
 do
   echo "Waiting for USB sound device"
   sleep 5
