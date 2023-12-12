@@ -48,7 +48,7 @@
     {
       "balena": "ICECAST_MOUNT_POINT",
       "xml": "listen-socket/shoutcast-mount",
-      "default": "rapi.mp3"
+      "default": "phono.mp3"
     },
     {
       "balena": "ICECAST_STREAM_NAME",

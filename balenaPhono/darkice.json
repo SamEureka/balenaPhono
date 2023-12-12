@@ -82,7 +82,7 @@
       "balena": "DARKICE_MOUNT_POINT",
       "ini": "mountPoint",
       "section": "icecast2-0",
-      "default": "rapi.mp3"
+      "default": "phono.mp3"
     },
     {
       "balena": "DARKICE_NAME",
