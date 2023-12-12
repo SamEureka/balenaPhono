@@ -67,7 +67,7 @@
     <listen-socket>
         <port>80</port>
         <!-- <bind-address>127.0.0.1</bind-address> -->
-        <shoutcast-mount>/rapi.mp3</shoutcast-mount>
+        <shoutcast-mount>/phono.mp3</shoutcast-mount>
     </listen-socket>
     <!--
     <listen-socket>

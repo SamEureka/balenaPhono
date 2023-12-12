@@ -3,6 +3,14 @@
 
 balenaPhono is a project for Raspberry Pi that takes the audio output from a turntable or any other audio device and creates a shoutcast/icecast network stream. This project is great for anyone looking for a cheap and simple way to play vinyl on [Sonos](https://www.sonos.com/en-us/home) or [Ikea Symfonisk](https://www.ikea.com/us/en/cat/wi-fi-speakers-46194/) speakers.
 
+### _*UPDATE! 12/12/2023*_:
+* There are breaking changes.
+* The stream mount point is now named phono.mp3 by default. You can change it by setting `DARKICE_MOUNT_POINT` and `ICECAST_MOUNT_POINT` to 'your-cool-mount.mp3'. __Existing Sonos Stations and browser bookmarks will need to be updated.__
+* I have updated the startup script. It will now attempt to discover your USB Audio device and display it in the console log. The detection logic is not :100: accurate, you may need to adjust.
+* You are now required to add a Device Variable named `DARKICE_DEVICE` and the value will be what ever is returned by the detection script. I will automate this in the future... but for now it is a manual process. ([Here are generic instructions on how to add a device variable](https://docs.balena.io/learn/manage/variables/#device-variables))
+* The rough flow of the detection is: Look for a USB Audio Device (and ignore HDMI Audio), then find the card and device numbers, create the device slug from the discovered numbers, and then display the info in the console log. If the `DARKICE_DEVICE` variable is already set and correct, the stream will start!
+
+
 ### _*UPDATE!*_:
 * I've updated the booter container to use the cron instead of a bash script `sleep` method. Now you use the `REBOOT_TIME` variable to specify the hour of the day you would like balenaPhono to reboot. This keeps the darkice stream from becoming unstable over time. If you have a better way to do this please make a pull request or open an issue.   
 
@@ -17,22 +25,54 @@ balenaPhono is a project for Raspberry Pi that takes the audio output from a tur
 * The turntable I use: audio-technica [AT-LP60XUSB](https://www.audio-technica.com/en-us/turntables/best-for/new-to-vinyl/at-lp60xusb)
 
 ---
-### Install
+### Installation INstructions
+#### One click install: 
 Running this project is as simple as deploying it to a balenaCloud application. You can deploy it in one click by using the button below:
 
 [![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/SamEureka/balenaPhono)
 
+##### Balena Deploy method
+1. Ensure you have git and the balena-cli installed and logged into balenaCloud ([INSTRUCTIONS HERE](https://docs.balena.io/learn/getting-started/raspberry-pi/python/#install-the-balena-cli))
+
+2. Follow these steps to create a fleet. The steps here are generic, change as appropriate for your hardware. ([INSTRUCTIONS HERE](https://docs.balena.io/learn/getting-started/raspberry-pi/python/#create-a-fleet))
+
+4. Add a new device to your fleet and provision your hardware using balenaEtcher or similar software. ([INSTRUCTIONS HERE](https://docs.balena.io/learn/getting-started/raspberry-pi/python/#add-a-device-and-download-os))
+
+5. Clone this repo `git clone https://github.com/SamEureka/balenaPhono.git`
+
+6. Change into the balenaPhono directory `cd balenaPhono`
+
+7. Use balena push command to build and upload the container image to your device. `balena push <name of your fleet>` (example, my fleet is called 'balenaPhonoDev' `balena push balenaPhonoDev`)
+
+8. Wait for Charlie Unicorn to appear!
+
 ---
 ### Post install setup:
-1. In the balenaCloud console for your new device check the log for any errors. You may need to change the DARKICE_DEVICE variable to match your device. Take a look [here](http://manpages.ubuntu.com/manpages/bionic/man5/darkice.cfg.5.html) for troubleshooting tips.
+1. Look in the balenaCloud console log. The startup script will try to detect your sound device and will display it in the log. It is a best effort detection and may not be correct. You might need to change the DARKICE_DEVICE variable to match your device. Take a look [here](http://manpages.ubuntu.com/manpages/bionic/man5/darkice.cfg.5.html) for troubleshooting tips.
+
 2. Get the local ip address for your device from the balenaCloud console.
+
 3. To play the stream in a browser window:
 
-    ```http://<device-ip>/rapi.mp3```
+    ```
+    http://<device-ip>/phono.mp3
+    ```
 
-4. To add your stream to your Sonos system:
+4. To add your phono stream to your Sonos system:
 
-    ```You must use the Sonos desktop controller app to add a custom stream to Sonos. Click on Manage > Add Radio Station and enter the url for the stream (using your device local ip) "http://<device-ip>/rapi.mp3". Also enter a Station Name and click OK.``` 
+    #### Using the iPhone or Android app 
+    1.  Download the Sonos App. [Sonos Downloads](https://support.sonos.com/en-us/downloads) (Tested with Sonos S1 Controller App)
+    
+    2. Tap into - Browse > TuneIn > My Radio Stations
+
+    3. On the My Radio Stations page tap the top `...` and then tap `Add New Radio Station`
+
+    4. In the 'Streaming URL' field enter `http://<device-ip>/phono.mp3` and in the 'Station Name' field enter `balenaPhono` then tap 'OK' 
+
+    #### Using the Unofficial Sonos Controller For Linux
+    1. From the menu bar select - Player > Play URL
+
+    2. Enter `http://<device-ip>/phono.mp3` in the field and click 'OK'
 
 ---
 ### Device Variables:
@@ -53,7 +93,7 @@ Running this project is as simple as deploying it to a balenaCloud application. 
 | ICECAST_ADMIN_PASSWORD | b@13n4-@dm1n! | Password for the admin portal |
 | ICECAST_HOSTNAME | balenaPhono | Hostname for the Icecast server |
 | ICECAST_PORT | 80 | Port that Icecast server listens on. Needs to be the same as DARKICE_PORT |
-| ICECAST_MOUNT_POINT | rapi.mp3 | Should end in .mp3 for MP3 streams and .ogg for Ogg Vorbis encoding |
+| ICECAST_MOUNT_POINT | phono.mp3 | Should end in .mp3 for MP3 streams and .ogg for Ogg Vorbis encoding |
 | ICECAST_STREAM_NAME | balenaPhono | Name of your stream. |
 | ICECAST_STREAM_DESC | A stream from AUX/Phono | Description of your stream. |
 | ICECAST_GENRE | Vinyl | The genre of your stream. |
@@ -70,7 +110,7 @@ Running this project is as simple as deploying it to a balenaCloud application. 
 | DARKICE_SERVER | localhost | Icecast server address or url |
 | DARKICE_PORT | 80 | Icecast port. Needs to be the same as ICECAST_PORT |
 | DARKICE_PASSWORD | b@13n4! | Needs to be the same as ICECAST_SOURCE_PASSWORD |
-| DARKICE_MOUNT_POINT | rapi.mp3 | Needs to be the same as ICECAST_MOUNT_POINT |
+| DARKICE_MOUNT_POINT | phono.mp3 | Needs to be the same as ICECAST_MOUNT_POINT |
 | DARKICE_NAME | balenaPhono | Name of the stream. |
 | | | |
 
