@@ -37,7 +37,7 @@ data:
     - DARKICE_DURATION: 0
     - DARKICE_BUFFER_SECONDS: 1
     - DARKICE_RECONNECT: yes
-    - DARKICE_DEVICE: plughw:0,0
+    - DARKICE_DEVICE: 
     - DARKICE_SAMPLE_RATE: 44100
     - DARKICE_BITS_PER_SAMPLE: 16
     - DARKICE_CHANNEL: 2
@@ -55,4 +55,4 @@ data:
     - raspberry-pi2
     - raspberrypi3
     - raspberrypi4-64
-version: 3.0.8
+version: 3.1.0
