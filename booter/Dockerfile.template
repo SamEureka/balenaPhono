@@ -1,5 +1,5 @@
 ## booter/Dockerfile.template ##
-## Sam Dennon//2023                ##
+## 2023 (c) // Sam Dennon     ##
 
 # Use balena base images, they have extra Charlie Unicorn magic built in!
 FROM balenalib/%%BALENA_MACHINE_NAME%%-debian-python:3.10.10-bullseye

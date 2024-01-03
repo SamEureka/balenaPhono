@@ -1,5 +1,5 @@
 ## balenaPhono/phonoConfig.py ##
-## Sam Dennon//DEC2021        ##
+## DEC2021 (c) // Sam Dennon  ##
 
 import configparser as CFG
 import os
