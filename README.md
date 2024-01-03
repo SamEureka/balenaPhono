@@ -3,16 +3,11 @@
 
 balenaPhono is a project for Raspberry Pi that takes the audio output from a turntable or any other audio device and creates a shoutcast/icecast network stream. This project is great for anyone looking for a cheap and simple way to play vinyl on [Sonos](https://www.sonos.com/en-us/home) or [Ikea Symfonisk](https://www.ikea.com/us/en/cat/wi-fi-speakers-46194/) speakers.
 
-### _*UPDATE! 12/12/2023*_:
+### _*UPDATE! 1/3/2024*_:
 * There are breaking changes.
 * The stream mount point is now named phono.mp3 by default. You can change it by setting `DARKICE_MOUNT_POINT` and `ICECAST_MOUNT_POINT` to 'your-cool-mount.mp3'. __Existing Sonos Stations and browser bookmarks will need to be updated.__
-* I have updated the startup script. It will now attempt to discover your USB Audio device and display it in the console log. The detection logic is not :100: accurate, you may need to adjust.
-* You are now required to add a Device Variable named `DARKICE_DEVICE` and the value will be what ever is returned by the detection script. I will automate this in the future... but for now it is a manual process. ([Here are generic instructions on how to add a device variable](https://docs.balena.io/learn/manage/variables/#device-variables))
-* The rough flow of the detection is: Look for a USB Audio Device (and ignore HDMI Audio), then find the card and device numbers, create the device slug from the discovered numbers, and then display the info in the console log. If the `DARKICE_DEVICE` variable is already set and correct, the stream will start!
-
-
-### _*UPDATE!*_:
-* I've updated the booter container to use the cron instead of a bash script `sleep` method. Now you use the `REBOOT_TIME` variable to specify the hour of the day you would like balenaPhono to reboot. This keeps the darkice stream from becoming unstable over time. If you have a better way to do this please make a pull request or open an issue.   
+* I have updated the startup script. It will now attempt to discover your USB Audio device and set the `DARKICE_DEVICE` variable. The detection logic is not :100: accurate, you may need to adjust.
+* The rough flow of the detection is: Look for a USB Audio Device (and ignore HDMI Audio), then find the card and device numbers, create the device slug from the discovered numbers. If the variable is already set and matches the detected device the stream will start. If the detection is flawed you can create a `BYPASS_DEVICE_CHECK` variable and then set `DARKICE_DEVICE` manually.
 
 ---
 ### Equipment needed:
@@ -48,7 +43,13 @@ Running this project is as simple as deploying it to a balenaCloud application. 
 
 ---
 ### Post install setup:
-1. Look in the balenaCloud console log. The startup script will try to detect your sound device and will display it in the log. It is a best effort detection and may not be correct. You might need to change the DARKICE_DEVICE variable to match your device. Take a look [here](http://manpages.ubuntu.com/manpages/bionic/man5/darkice.cfg.5.html) for troubleshooting tips.
+1. The balenaPhono startup script will attempt to discover your sound device and set it automagicaly. 
+
+
+   __If the detection fails you may need to bypass the detection and set the DARKICE_DEVICE variable to match your device.__ 
+    
+    - Create a `BYPASS_DEVICE_CHECK` device variable and set it to `true`
+    - Create a `DARKICE_DEVICE` device variable and set it to match your hardware. Take a look [here](http://manpages.ubuntu.com/manpages/bionic/man5/darkice.cfg.5.html) for troubleshooting tips. 
 
 2. Get the local ip address for your device from the balenaCloud console.
 
@@ -74,13 +75,20 @@ Running this project is as simple as deploying it to a balenaCloud application. 
 
     2. Enter `http://<device-ip>/phono.mp3` in the field and click 'OK'
 
+### Additional setup (not required)
+
+  #### Balena Booter
+  - Use the `REBOOT_TIME` variable to specify the hour of the day you would like balenaPhono to reboot. This keeps the darkice stream from becoming unstable over time. Acceptable values are 0 through 23 representing the hour you want the device to reboot every day. 
+
 ---
-### Device Variables:
+### Available Device Variables:
+##### For advanced configuration
 | Variable | Example Value | Note |
 |---|---|---|
+| BYPASS_DEVICE_CHECK | true | To bypass the automagical DARKICE_DEVICE setup, set this variable to `true` (be sure to also set DARKICE_DEVICE to match your audio hardware.) | 
 | PORTAL_SSID | balenaPhono | Wifi-connect captive portal SSID **Check out [wifi-connect](https://github.com/balenablocks/wifi-connect) page for additional variables. |
 | PORTAL_PASSPHRASE | balenaPhono | Wifi-connect captive portal Passphrase |
-| PORTAL_LISTENING_PORT | 8000 | *Changed from the default port 80 due to conflict with Icecast server |
+| PORTAL_LISTENING_PORT | 8000 | Port the darkice stream is sent to. *Changed from the default port 80 due to conflict with Icecast server |
 | CHECK_CONN_FREQ | 120 | This is the wifi-connect polling wait time in seconds. The default is 120 seconds, I usually set mine to 3000.  |
 | REBOOT_TIME | 4 | Default is 4 (reboot every 24 hours at [4:00am](https://github.com/SamEureka/balenaPhono/issues/5) in the `America/Los_Angeles` timezone). Acceptable values are 0 through 23 representing the hour you want the device to reboot every day. Darkice audio streams have a tendency to get corrupted after a few days of up time. A python script triggered by cron reboots the host once a day to keep things clean. Looking for a better way... if you have ideas. |
 | TZ | `America/Los_Angeles` | Sets the timezone. Look up your timezone [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List). Default is `America/Los_Angeles` |

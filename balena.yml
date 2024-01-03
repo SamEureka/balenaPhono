@@ -3,6 +3,27 @@ joinable: false
 type: sw.application
 description: >-
   balenaPhono is a project for Raspberry Pi that takes the audio output from a turntable or any other audio device and creates a shoutcast/icecast network stream. This project is great for anyone looking for a cheap and simple way to play vinyl on Sonos speakers.
+post-provisioning: >-
+  ### Using balenaPhono with Sonos
+
+
+    - The balenaPhono startup script will attempt to discover your sound device and set it automagicaly. If the detection fails you may need to bypass the detection and set the DARKICE_DEVICE variable manually. See the repository [README](https://github.com/SamEureka/balenaPhono/blob/main/README.md) on Github. 
+
+    1. Get the local ip address for your device from the balenaCloud console.
+
+    #### Using the iPhone or Android app 
+    1.  Download the Sonos App. [Sonos Downloads](https://support.sonos.com/en-us/downloads) (Tested with Sonos S1 Controller App)
+    
+    2. Tap into - Browse > TuneIn > My Radio Stations
+
+    3. On the My Radio Stations page tap the top `...` and then tap `Add New Radio Station`
+
+    4. In the 'Streaming URL' field enter `http://<device-ip>/phono.mp3` and in the 'Station Name' field enter `balenaPhono` then tap 'OK' 
+
+    #### Using the Unofficial Sonos Controller For Linux
+    1. From the menu bar select - Player > Play URL
+
+    2. Enter `http://<device-ip>/phono.mp3` in the field and click 'OK'
 assets:
   repository:
     type: blob.asset
@@ -15,44 +36,44 @@ assets:
         https://raw.githubusercontent.com/SamEureka/balenaPhono/main/logo.png
 data:
   applicationEnvironmentVariables:
-    - PORTAL_SSID: balenaPhono
-    - PORTAL_PASSPHRASE: balenaPhono
-    - PORTAL_LISTENING_PORT: 8000
-    - CHECK_CONN_FREQ: 120
-    - REBOOT_TIME: 4
-    - TZ: America/Los_Angeles
-    - ICECAST_LOCATION: Interwebs
-    - ICECAST_ADMIN_EMAIL: balenaAdmin@localhost
-    - ICECAST_CLIENTS: 10
-    - ICECAST_SOURCE_PASSWORD: b@13n4!
-    - ICECAST_RELAY_PASSWORD: b@13n4!
-    - ICECAST_ADMIN_NAME: balenaAdmin
-    - ICECAST_ADMIN_PASSWORD: b@13n4-@dm1n!
-    - ICECAST_HOSTNAME: balenaPhono
-    - ICECAST_PORT: 80
-    - ICECAST_MOUNT_POINT: phono.mp3
-    - ICECAST_STREAM_NAME: 	balenaPhono
-    - ICECAST_STREAM_DESC: A stream from AUX/Phono
-    - ICECAST_GENRE: vinyl
-    - DARKICE_DURATION: 0
-    - DARKICE_BUFFER_SECONDS: 1
-    - DARKICE_RECONNECT: yes
-    - DARKICE_DEVICE: 
-    - DARKICE_SAMPLE_RATE: 44100
-    - DARKICE_BITS_PER_SAMPLE: 16
-    - DARKICE_CHANNEL: 2
-    - DARKICE_BITRATE_MODE: cbr
-    - DARKICE_FORMAT: mp3
-    - DARKICE_BITRATE: 320
-    - DARKICE_SERVER: localhost
-    - DARKICE_PORT: 80
-    - DARKICE_PASSWORD: b@13n4!
-    - DARKICE_MOUNT_POINT: phono.mp3
-    - DARKICE_NAME: balenaPhono
+    # - PORTAL_SSID: balenaPhono
+    # - PORTAL_PASSPHRASE: balenaPhono
+    # - PORTAL_LISTENING_PORT: 8000
+    # - CHECK_CONN_FREQ: 120
+    # - REBOOT_TIME: 4
+    # - TZ: America/Los_Angeles
+    # - ICECAST_LOCATION: Interwebs
+    # - ICECAST_ADMIN_EMAIL: balenaAdmin@localhost
+    # - ICECAST_CLIENTS: 10
+    # - ICECAST_SOURCE_PASSWORD: b@13n4!
+    # - ICECAST_RELAY_PASSWORD: b@13n4!
+    # - ICECAST_ADMIN_NAME: balenaAdmin
+    # - ICECAST_ADMIN_PASSWORD: b@13n4-@dm1n!
+    # - ICECAST_HOSTNAME: balenaPhono
+    # - ICECAST_PORT: 80
+    # - ICECAST_MOUNT_POINT: phono.mp3
+    # - ICECAST_STREAM_NAME: balenaPhono
+    # - ICECAST_STREAM_DESC: A stream from AUX/Phono
+    # - ICECAST_GENRE: vinyl
+    # - DARKICE_DURATION: 0
+    # - DARKICE_BUFFER_SECONDS: 1
+    # - DARKICE_RECONNECT: yes
+    # - DARKICE_DEVICE: 
+    # - DARKICE_SAMPLE_RATE: 44100
+    # - DARKICE_BITS_PER_SAMPLE: 16
+    # - DARKICE_CHANNEL: 2
+    # - DARKICE_BITRATE_MODE: cbr
+    # - DARKICE_FORMAT: mp3
+    # - DARKICE_BITRATE: 320
+    # - DARKICE_SERVER: localhost
+    # - DARKICE_PORT: 80
+    # - DARKICE_PASSWORD: b@13n4!
+    # - DARKICE_MOUNT_POINT: phono.mp3
+    # - DARKICE_NAME: balenaPhono
   defaultDeviceType: raspberry-pi
   supportedDeviceTypes:
     - raspberry-pi
     - raspberry-pi2
     - raspberrypi3
     - raspberrypi4-64
-version: 3.1.0
+version: 3.1.2

@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+## booter/booter.sh   ##
+## 2023 // Sam Dennon ##
+
 # Need to copy the env to a .env file so the booter.py script can access
 # the environment variables. I could not figure out a better way to do this.
 env >> /booter/.env

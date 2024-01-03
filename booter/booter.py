@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-## balenaPhono/booter.py ##
-## Sam Dennon // 2023    ##
+## balenaPhono/booter.py  ##
+## 2023 (c) // Sam Dennon ##
 
 import os
 import requests

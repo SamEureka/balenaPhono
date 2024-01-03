@@ -1,7 +1,7 @@
 #!/bin/bash
 
-## balenaPhono/start.sh ##
-## Sam Dennon//2023     ##
+## balenaPhono/start.sh    ##
+## 2024 (c) // Sam Dennon  ##
 
 # Build the config files
 python3 phonoConfig.py
@@ -27,15 +27,15 @@ until [ -n "$usb_card" ]; do
     card_number=$(echo "$usb_card" | awk '{print $2}' | tr -d ':')
     device_number=$(echo "$usb_card" | grep -oP 'device \K[0-9]+')
     
-    echo ""
-    echo "** USB Sound Device detected!             **"
-    echo "** The startup script will attempt to     **"
-    echo "** set the DARKICE_DEVICE Device Variable **"
-    echo "** to plughw:$card_number,$device_number  **"
-    echo "** If you want to set the DARKICE_DEVICE  **"
+    echo "*********************************************"
+    echo "** USB Sound Device detected!              **"
+    echo "** The startup script will attempt to      **"
+    echo "** set the DARKICE_DEVICE Device Variable  **"
+    echo "** to plughw:$card_number,$device_number                           **"
+    echo "** If you want to set the DARKICE_DEVICE   **"
     echo "** variable manually, or use the defaults, **"
     echo "** set BYPASS_DEVICE_CHECK to 'true'       **"
-    echo ""
+    echo "*********************************************"
 
     # Check if DARKICE_DEVICE is set and matches the current device
     if [ "$DARKICE_DEVICE" = "plughw:$card_number,$device_number" ]; then
@@ -45,7 +45,6 @@ until [ -n "$usb_card" ]; do
       echo "Bypassing device check as BYPASS_DEVICE_CHECK is set to true"
       darkice -c ./darkice.cfg
     else
-      echo "** USB sound device detected! **"
       echo "Setting DARKICE_DEVICE to plughw:$card_number,$device_number"
       export DARKICE_DEVICE="plughw:$card_number,$device_number"
       # run phonoConfig again
