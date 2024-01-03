@@ -26,7 +26,7 @@ Running this project is as simple as deploying it to a balenaCloud application. 
 
 [![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/SamEureka/balenaPhono)
 
-##### Balena Deploy method
+#### Balena Deploy method:
 1. Ensure you have git and the balena-cli installed and logged into balenaCloud ([INSTRUCTIONS HERE](https://docs.balena.io/learn/getting-started/raspberry-pi/python/#install-the-balena-cli))
 
 2. Follow these steps to create a fleet. The steps here are generic, change as appropriate for your hardware. ([INSTRUCTIONS HERE](https://docs.balena.io/learn/getting-started/raspberry-pi/python/#create-a-fleet))
