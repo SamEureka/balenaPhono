@@ -20,4 +20,4 @@ RUN python3 /balenaPhono/phonoConfig.py
 ENV UDEV=1
 
 # Start the services
-CMD ["bash", "/balenaPhono/start.sh"]
+CMD ["python3", "/balenaPhono/start.py"]
